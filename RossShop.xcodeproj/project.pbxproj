@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		23DCD58225419BF90044BB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD58125419BF90044BB19 /* AppDelegate.swift */; };
 		23DCD58425419BF90044BB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD58325419BF90044BB19 /* SceneDelegate.swift */; };
-		23DCD58625419BF90044BB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD58525419BF90044BB19 /* ViewController.swift */; };
+		23DCD58625419BF90044BB19 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD58525419BF90044BB19 /* ProductViewController.swift */; };
 		23DCD58925419BF90044BB19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DCD58725419BF90044BB19 /* Main.storyboard */; };
 		23DCD58B25419BFB0044BB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DCD58A25419BFB0044BB19 /* Assets.xcassets */; };
 		23DCD58E25419BFB0044BB19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DCD58C25419BFB0044BB19 /* LaunchScreen.storyboard */; };
+		23DCD59C2541B5110044BB19 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD59B2541B5110044BB19 /* Products.swift */; };
+		23DCD59F2541BA320044BB19 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD59E2541BA320044BB19 /* ProductsManager.swift */; };
+		23DCD5A22541BCB70044BB19 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD5A12541BCB70044BB19 /* ProductModel.swift */; };
+		23DCD5AB2541CF290044BB19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD5AA2541CF290044BB19 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23DCD57E25419BF90044BB19 /* RossShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RossShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23DCD58125419BF90044BB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23DCD58325419BF90044BB19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		23DCD58525419BF90044BB19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23DCD58525419BF90044BB19 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		23DCD58825419BF90044BB19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23DCD58A25419BFB0044BB19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23DCD58D25419BFB0044BB19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23DCD58F25419BFB0044BB19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23DCD59B2541B5110044BB19 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		23DCD59E2541BA320044BB19 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
+		23DCD5A12541BCB70044BB19 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		23DCD5AA2541CF290044BB19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,51 @@
 		23DCD58025419BF90044BB19 /* RossShop */ = {
 			isa = PBXGroup;
 			children = (
+				23DCD59925419E810044BB19 /* Controller */,
+				23DCD59725419E750044BB19 /* Model */,
+				23DCD5A42541CDA20044BB19 /* Utils */,
+				23DCD59825419E7B0044BB19 /* View */,
 				23DCD58125419BF90044BB19 /* AppDelegate.swift */,
 				23DCD58325419BF90044BB19 /* SceneDelegate.swift */,
-				23DCD58525419BF90044BB19 /* ViewController.swift */,
-				23DCD58725419BF90044BB19 /* Main.storyboard */,
 				23DCD58A25419BFB0044BB19 /* Assets.xcassets */,
-				23DCD58C25419BFB0044BB19 /* LaunchScreen.storyboard */,
 				23DCD58F25419BFB0044BB19 /* Info.plist */,
 			);
 			path = RossShop;
+			sourceTree = "<group>";
+		};
+		23DCD59725419E750044BB19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23DCD59B2541B5110044BB19 /* Products.swift */,
+				23DCD59E2541BA320044BB19 /* ProductsManager.swift */,
+				23DCD5A12541BCB70044BB19 /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23DCD59825419E7B0044BB19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23DCD58725419BF90044BB19 /* Main.storyboard */,
+				23DCD58C25419BFB0044BB19 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		23DCD59925419E810044BB19 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				23DCD58525419BF90044BB19 /* ProductViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		23DCD5A42541CDA20044BB19 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				23DCD5AA2541CF290044BB19 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DCD58625419BF90044BB19 /* ViewController.swift in Sources */,
+				23DCD59F2541BA320044BB19 /* ProductsManager.swift in Sources */,
+				23DCD5A22541BCB70044BB19 /* ProductModel.swift in Sources */,
+				23DCD58625419BF90044BB19 /* ProductViewController.swift in Sources */,
+				23DCD59C2541B5110044BB19 /* Products.swift in Sources */,
+				23DCD5AB2541CF290044BB19 /* Constants.swift in Sources */,
 				23DCD58225419BF90044BB19 /* AppDelegate.swift in Sources */,
 				23DCD58425419BF90044BB19 /* SceneDelegate.swift in Sources */,
 			);
@@ -288,6 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RossShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sdestudio.RossShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RossShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sdestudio.RossShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
