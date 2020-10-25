@@ -10,14 +10,19 @@ struct ProductsManager {
     
      var delegate: ProductsManagerDelegate?
      
-     func fetchProducts() {
+    func fetchProducts(page: Int = 0) {
         let urlString = "\(mainURL)\(K.URLs.getProducts)"
-         performRequest(with: urlString)
+        performRequest(with: urlString, page: page)
      }
-
      
-     func performRequest(with urlString: String) {
-         if let url = URL(string: urlString) {
+     func performRequest(with urlString: String, page: Int = 0) {
+        
+        guard var urlComponents = URLComponents(string: "\(mainURL)\(K.URLs.getProducts)") else {
+            return
+        }
+        urlComponents.query = "&Page=\(page)"
+        
+        if let url = urlComponents.url {
              let session = URLSession(configuration: .default)
              let task = session.dataTask(with: url) { (data, response, error) in
                  if error != nil {

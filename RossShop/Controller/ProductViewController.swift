@@ -1,54 +1,26 @@
+import Foundation
 import UIKit
 
-class ProductViewController: UITableViewController {
-
-    var products = Products()
-    var productsManager = ProductsManager()
+class ProductViewController: UIViewController {
     
+    @IBOutlet weak var productImg: UIImageView!
+    @IBOutlet weak var productPrice: UILabel!
+    
+    var imageLoader = ImageLoader()
+    var prodTitle: String = ""
+    var prodPrice: String = ""
+    var prodImg: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        productsManager.delegate = self
-        productsManager.fetchProducts()
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        products.data?.products?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
+        title = prodTitle
+        productPrice.text = "PRICE: \(prodPrice)"
         
-        let product = products.data?.products?[indexPath.row]
-        
-        let urlMini : String = (product?.pictures?[0].mini ?? "") as String
-        DispatchQueue.main.async {         let url = NSURL(string: "https:\(urlMini)")
-            let imagedata = NSData.init(contentsOf: url! as URL)
-
-            if imagedata != nil {
-                cell.imageView?.image = UIImage(data:imagedata! as Data)
-            }}
-
-        cell.textLabel?.text = product?.brand
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-    }
-
-}
-
-extension ProductViewController: ProductsManagerDelegate {
-    func didUpdateProduct(_ productsManager: ProductsManager, product: Products) {
-        products = product
-        tableView.reloadData()
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error)
+        DispatchQueue.global().async {
+            self.imageLoader.obtainImageWithPath(imagePath: "https:\(self.prodImg)") { (image) in
+                self.productImg.image = image
+                
+                }
+        }
     }
 }
-
-

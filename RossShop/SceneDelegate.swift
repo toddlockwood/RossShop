@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  RossShop
-//
-//  Created by Arek Łapajski on 22/10/2020.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
