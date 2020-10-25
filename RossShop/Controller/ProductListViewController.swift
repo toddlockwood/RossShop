@@ -60,7 +60,36 @@ class ProductListViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    fileprivate func prepareCell(_ cell: UITableViewCell) {
+        cell.textLabel?.numberOfLines = 4
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+    }
+    
+    fileprivate func getUrl(_ product: Product?) -> String {
+        return (product?.pictures?[0].mini ?? "") as String
+    }
+    
+    fileprivate func getCellPicture(_ product: Product?, _ tableView: UITableView, _ indexPath: IndexPath) {
+        DispatchQueue.global().async {
+            self.imageLoader.obtainImageWithPath(imagePath: "https:\(self.getUrl(product))") { (image) in
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    cell.imageView?.image = image
+                    cell.setNeedsLayout()
+                }
+            }
+        }
+    }
+    
+    fileprivate func getCellText(_ cell: UITableViewCell, _ product: Product?) {
+        cell.textLabel?.text? = """
+                                        \(product?.brand ?? "")
+                                        \(product?.caption ?? "")
+                                        \(product?.name ?? "")
+                                        """
+                                        
+}
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let product = products.data?.products?[indexPath.row]
         
@@ -68,26 +97,9 @@ class ProductListViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
             tableView.rowHeight = UITableView.automaticDimension
-            cell.textLabel?.numberOfLines = 4
-            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            
-            let urlMini : String = (product?.pictures?[0].mini ?? "") as String
-            
-            DispatchQueue.global().async {
-                self.imageLoader.obtainImageWithPath(imagePath: "https:\(urlMini)") { (image) in
-                        if let cell = tableView.cellForRow(at: indexPath) {
-                            cell.imageView?.image = image
-                            cell.setNeedsLayout()
-                        }
-                    }
-            }
-
-            
-            cell.textLabel?.text? = """
-                                        \(product?.brand ?? "")
-                                        \(product?.caption ?? "")
-                                        \(product?.name ?? "")
-                                        """
+            prepareCell(cell)
+            getCellPicture(product, tableView, indexPath)
+            getCellText(cell, product)
 
             cell.sizeToFit()
             return cell
@@ -160,5 +172,6 @@ extension ProductListViewController: ProductsManagerDelegate {
         print(error)
     }
 }
+
 
 

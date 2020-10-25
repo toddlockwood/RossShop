@@ -7,8 +7,7 @@ protocol ProductsManagerDelegate {
 
 struct ProductsManager {
     let mainURL = K.URLs.mainUrl
-    
-     var delegate: ProductsManagerDelegate?
+    var delegate: ProductsManagerDelegate?
      
     func fetchProducts(page: Int = 0) {
         let urlString = "\(mainURL)\(K.URLs.getProducts)"
