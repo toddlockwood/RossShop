@@ -112,7 +112,9 @@ class ProductListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ProductViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            let price = String(format: "%f", self.products.data?.products?[indexPath.row].price as! CVarArg)
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            guard let price = formatter.string(for: self.products.data?.products?[indexPath.row].price) else { return }
             prepareData(destinationVC, price, indexPath)
         }
     }

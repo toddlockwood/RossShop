@@ -1,3 +1,5 @@
+
+
 import Foundation
 import UIKit
 
@@ -13,7 +15,7 @@ class ImageLoader {
         self.cache = NSCache()
     }
     
-    fileprivate func getPlaceholder(_ completionHandler: @escaping (UIImage) -> ()) {
+    fileprivate func getPlaceholder(_ completionHandler: @escaping (UIImage) -> ()) throws -> Void {
         DispatchQueue.main.async {
             let placeholder = #imageLiteral(resourceName: " empty.jpg")
             completionHandler(placeholder)
@@ -26,7 +28,9 @@ class ImageLoader {
                 completionHandler(image)
             }
         } else {
-            guard (try? getPlaceholder(completionHandler)) != nil else {
+            do {
+                try getPlaceholder(completionHandler)
+            } catch {
                 return
             }
             
